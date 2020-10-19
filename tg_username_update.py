@@ -16,9 +16,11 @@ from telethon import TelegramClient
 from telethon.tl.functions.account import UpdateProfileRequest
 from emoji import emojize
 
-
-dizzy = emojize(":dizzy:", use_aliases=True)
-cake = emojize(":cake:", use_aliases=True)
+computer = emojize(":computer:", use_aliases=True)
+thumbs_up = emojize(":thumbs_up:", use_aliases=True)
+moneybag = emojize(":moneybag:", use_aliases=True)
+link = emojize(":link:", use_aliases=True)
+speaker = emojize(":speaker:", use_aliases=True)
 all_time_emoji_name = ["clock12", "clock1230", "clock1", "clock130", "clock2", "clock230", "clock3", "clock330", "clock4", "clock430", "clock5", "clock530", "clock6", "clock630", "clock7", "clock730", "clock8", "clock830", "clock9", "clock930", "clock10", "clock1030", "clock11", "clock1130"]
 time_emoji_symb = [emojize(":%s:" %s, use_aliases=True) for s in all_time_emoji_name]
 
@@ -53,19 +55,29 @@ async def change_name_auto():
                 if int(minu)>30: shift=1
                 # print((int(hour)%12)*2+shift)
                 # hour symbols
-                hsym = time_emoji_symb[(int(hour)%12)*2+shift]
+                # hsym = time_emoji_symb[(int(hour)%12)*2+shift]
                 # await client1.send_message('me', hsym)
                 for_fun = random.random() 
                 if for_fun < 0.10:
-                    last_name = '%s时%s分 %s' % (hour, minu, hsym)
+                    last_name = '%s 出售V2RaySocks for WHMCS插件,无加密无授权' % computer
+                elif for_fun < 0.20:
+                    last_name = '%s 后端支持V2Ray,Trojan和SS,无授权' % thumbs_up
                 elif for_fun < 0.30:
-                    last_name = '%s:%s %s %s %s' % (hour, minu, p, abbwn, hsym)
+                    last_name = '%s 仅售200USDT,送三套前端UI' % moneybag
+                elif for_fun < 0.40:
+                    last_name = '%s V2RaySocks for WHMCS,без шифрования' % computer
+                elif for_fun < 0.50:
+                    last_name = '%s поддерживает V2Ray,Trojan и SS,без авторизации' % thumbs_up
                 elif for_fun < 0.60:
-                    last_name = '%s:%s %s UTC+8 %s' % (hour, minu, p, hsym)
+                    last_name = '%s Цена 200USDT, включая три набора UI' % moneybag
+                elif for_fun < 0.70:
+                    last_name = '%s V2RaySocks for WHMCS plug-in,no encryption' % computer
+                elif for_fun < 0.80:
+                    last_name = '%s Backend supports V2Ray,Trojan and SS,no authorization' % thumbs_up
                 elif for_fun < 0.90:
-                    last_name = '%s' % dizzy
+                    last_name = '%s Only need 200USDT,including 3 frontend UI' % moneybag
                 else:
-                    last_name = '%s' % cake
+                    last_name = '%s Name ad source code %s→j.mp/31qh8FQ' % (speaker,link)
         
                 await client1(UpdateProfileRequest(last_name=last_name))
                 logger.info('Updated -> %s' % last_name)
